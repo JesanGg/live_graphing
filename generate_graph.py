@@ -1,69 +1,46 @@
-import random
-import csv
 from itertools import count
-import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
+from serial_reader import SerialReader
 
-plt.style.use('fivethirtyeight')
+port = "COM10"
+baudrate = 9600
 
 x_vals = []
 y_vals = []
 
-# plt.plot(x_vals, y_vals)
-
-index = count()
-
 
 def animate(i):
-    x_vals.append(next(index))
-    y_vals.append(random.randint(0, 5))
+    sensorValue = SerialReader.read_data()
 
-    # plt.cla()
-    plt.plot(x_vals, y_vals)
+    x_vals.append(i)
+    y_vals.append(sensorValue)
+
+    line.set_xdata(x_vals)
+    line.set_ydata(y_vals)
+
+    plt.xlim([0, len(x_vals) - 1])
+    plt.ylim([min(y_vals), max(y_vals) + 10])
+
+    return line,
 
 
-ani = FuncAnimation(plt.gcf(), animate, interval=1000, cache_frame_data=False)
+reader = SerialReader(port, baudrate)  # Create a serial reader object
 
-plt.tight_layout()
+fig, ax = plt.subplots()
+
+# Create the line object
+line, = ax.plot([], [], label='Sensor Data')
+
+# Add labels and title
+ax.set_xlabel('Time (or Sample)')  # Replace with appropriate label
+ax.set_ylabel('Sensor Reading')
+ax.set_title('Live Sensor Data Plot')
+
+# Animate the plot
+anim = FuncAnimation(fig, animate, frames=100, interval=20, blit=True)
+
+plt.legend()
 plt.show()
 
-'''
-import random
-import csv
-from itertools import count
-import pandas as pd
-import matplotlib.pyplot as plt
-from matplotlib.animation import FuncAnimation
-
-plt.style.use("fivethirtyeight")
-
-
-x_vals = []
-y_vals = []
-
-# plt.plot(x_vals, y_vals)
-
-index = count()
-
-
-def animate(i):
-    data = pd.read_csv("data.csv")
-    x = data["x_value"]
-    y1 = data["total_1"]
-    y2 = data["total_2"]
-
-    plt.cla()
-    plt.plot(x, y1, label="channel 1")
-
-    plt.legend(loc="upper right")
-    plt.tight_layout()
-
-
-ani = FuncAnimation(plt.gcf(), animate, interval=1000)
-
-plt.tight_layout()
-plt.show()
-
-
-'''
+reader.close()  # Close serial connection
