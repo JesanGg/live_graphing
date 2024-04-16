@@ -2,6 +2,7 @@ import serial
 import random as rand
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
+import threading
 
 # Define serial port and baud rate
 port = 'COM10'  # Replace with your port name
@@ -15,14 +16,13 @@ def animate(i):
   try:
     # Read data from serial port (replace with error handling)
 
-    data = ser.readline()
+    data = ser.readline()  # Read the data
 
-    data = data.decode("utf-8")
+    data = data.decode("utf-8")  # Decode the data
 
-    data = data.strip()
+    data = data.strip()  # Remove blank spaces in front and behind of the data
 
-    sensorValue = int(data)
-
+    sensorValue = float(data)
 
     # Update data lists
     x.append(i)  # Replace with timestamp if needed
@@ -34,13 +34,13 @@ def animate(i):
 
     # Optional: Set axis limits for efficiency
     plt.xlim([0, len(x) - 1])  # Adjust as needed
-    plt.ylim([min(y), max(y) + 10])  # Adjust as needed
+    plt.ylim([min(y)-.5, max(y) + .5])  # Adjust as needed
 
     return line,
 
   except serial.SerialException as e:
     print(f"Error reading serial port: {e}")
-    return line,  # Keep the plot running even on errors
+    return line,  # Keeps the plot running even on errors
 
 # Open serial connection (moved inside the animation loop)
 ser = serial.Serial(port, baudrate)
@@ -58,7 +58,7 @@ ax.set_title('Live Sensor Data Plot')
 
 
 # Animate the plot
-anim = animation.FuncAnimation(fig, animate, interval=50, cache_frame_data=False, blit=True)
+anim = animation.FuncAnimation(fig, animate, interval=10, cache_frame_data=False, blit=True)
 
 
 
