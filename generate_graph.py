@@ -1,31 +1,42 @@
-from itertools import count
+import serial
 import matplotlib.pyplot as plt
-from matplotlib.animation import FuncAnimation
-from serial_reader import SerialReader
+import matplotlib.animation as animation
 
-port = "COM10"
+# Define serial port and baud rate
+port = 'COM10'  # Replace with your port name
 baudrate = 9600
 
-x_vals = []
-y_vals = []
-
+# Initialize data storage (replace with your data type if needed)
+x = []
+y = []
 
 def animate(i):
-    sensorValue = SerialReader.read_data()
+  try:
+    # Read data from serial port (replace with error handling)
+    print("animate")
+    # data = ser.readline().decode('utf-8').strip()
+    sensorValue = 4
 
-    x_vals.append(i)
-    y_vals.append(sensorValue)
+    # Update data lists
+    x.append(i)  # Replace with timestamp if needed
+    y.append(sensorValue)
 
-    line.set_xdata(x_vals)
-    line.set_ydata(y_vals)
+    # Update the plot data
+    line.set_xdata(x)
+    line.set_ydata(y)
 
-    plt.xlim([0, len(x_vals) - 1])
-    plt.ylim([min(y_vals), max(y_vals) + 10])
+    # Optional: Set axis limits for efficiency
+    plt.xlim([0, len(x) - 1])  # Adjust as needed
+    plt.ylim([min(y), max(y) + 10])  # Adjust as needed
 
     return line,
 
+  except serial.SerialException as e:
+    print(f"Error reading serial port: {e}")
+    return line,  # Keep the plot running even on errors
 
-reader = SerialReader(port, baudrate)  # Create a serial reader object
+# Open serial connection (moved inside the animation loop)
+ser = serial.Serial(port, baudrate)
 
 fig, ax = plt.subplots()
 
@@ -37,10 +48,15 @@ ax.set_xlabel('Time (or Sample)')  # Replace with appropriate label
 ax.set_ylabel('Sensor Reading')
 ax.set_title('Live Sensor Data Plot')
 
+print("preanimate")
+
 # Animate the plot
-anim = FuncAnimation(fig, animate, frames=100, interval=20, blit=True)
+anim = animation.FuncAnimation(fig, animate, interval=1000,cache_frame_data=False, blit=True)
+
+print("show")
 
 plt.legend()
 plt.show()
 
-reader.close()  # Close serial connection
+# Close serial connection (optional)
+ser.close()
