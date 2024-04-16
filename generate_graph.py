@@ -1,6 +1,7 @@
 import serial
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
+from serial_reader import SerialReader
 
 # Define serial port and baud rate
 port = 'COM10'  # Replace with your port name
@@ -10,33 +11,35 @@ baudrate = 9600
 x = []
 y = []
 
+
 def animate(i):
-  try:
-    # Read data from serial port (replace with error handling)
-    print("animate")
-    # data = ser.readline().decode('utf-8').strip()
-    sensorValue = 4
+    try:
+        # Read data from serial port (replace with error handling)
+        print("animate")
 
-    # Update data lists
-    x.append(i)  # Replace with timestamp if needed
-    y.append(sensorValue)
+        voltage, current = SerialReader.read_data()  # Returns string list of length 2
 
-    # Update the plot data
-    line.set_xdata(x)
-    line.set_ydata(y)
+        # Update data lists
+        x.append(i)  # Replace with timestamp if needed
+        y.append(float(voltage))
 
-    # Optional: Set axis limits for efficiency
-    plt.xlim([0, len(x) - 1])  # Adjust as needed
-    plt.ylim([min(y), max(y) + 10])  # Adjust as needed
+        # Update the plot data
+        line.set_xdata(x)
+        line.set_ydata(y)
 
-    return line,
+        # Optional: Set axis limits for efficiency
+        plt.xlim([0, len(x) - 1])  # Adjust as needed
+        plt.ylim([min(y)-.5, max(y) + .5])  # Adjust as needed
 
-  except serial.SerialException as e:
-    print(f"Error reading serial port: {e}")
-    return line,  # Keep the plot running even on errors
+        return line,
+
+    except serial.SerialException as e:
+        print(f"Error reading serial port: {e}")
+        return line,  # Keep the plot running even on errors
+
 
 # Open serial connection (moved inside the animation loop)
-ser = serial.Serial(port, baudrate)
+SerialReader = SerialReader(port, baudrate)  # Create a serial reader object
 
 fig, ax = plt.subplots()
 
@@ -51,7 +54,7 @@ ax.set_title('Live Sensor Data Plot')
 print("preanimate")
 
 # Animate the plot
-anim = animation.FuncAnimation(fig, animate, interval=1000,cache_frame_data=False, blit=True)
+anim = animation.FuncAnimation(fig, animate, interval=100, cache_frame_data=False, blit=True)
 
 print("show")
 
@@ -59,4 +62,4 @@ plt.legend()
 plt.show()
 
 # Close serial connection (optional)
-ser.close()
+SerialReader.close()
