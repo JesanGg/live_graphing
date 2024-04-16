@@ -58,7 +58,7 @@ ax.set_title('Live Sensor Data Plot')
 
 
 # Animate the plot
-anim = animation.FuncAnimation(fig, animate, interval=10, cache_frame_data=False, blit=True)
+anim = animation.FuncAnimation(fig, animate, interval=20, cache_frame_data=False, blit=True)
 
 
 
