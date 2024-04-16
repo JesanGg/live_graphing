@@ -1,4 +1,5 @@
 import serial
+import random as rand
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 
@@ -13,9 +14,15 @@ y = []
 def animate(i):
   try:
     # Read data from serial port (replace with error handling)
-    print("animate")
-    # data = ser.readline().decode('utf-8').strip()
-    sensorValue = 4
+
+    data = ser.readline()
+
+    data = data.decode("utf-8")
+
+    data = data.strip()
+
+    sensorValue = int(data)
+
 
     # Update data lists
     x.append(i)  # Replace with timestamp if needed
@@ -48,12 +55,12 @@ ax.set_xlabel('Time (or Sample)')  # Replace with appropriate label
 ax.set_ylabel('Sensor Reading')
 ax.set_title('Live Sensor Data Plot')
 
-print("preanimate")
+
 
 # Animate the plot
-anim = animation.FuncAnimation(fig, animate, interval=1000,cache_frame_data=False, blit=True)
+anim = animation.FuncAnimation(fig, animate, interval=50, cache_frame_data=False, blit=True)
 
-print("show")
+
 
 plt.legend()
 plt.show()

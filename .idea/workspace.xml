@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06a0c377-677e-4788-a227-c02c317a57f4" name="Changes" comment="with serial function">
-      <change afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
+    <list default="true" id="06a0c377-677e-4788-a227-c02c317a57f4" name="Changes" comment="working moving graph. with no serial reading but confirmed serial connection">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/generate_graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/generate_graph.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serial_reader.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +58,7 @@
       <workItem from="1713199914213" duration="120000" />
       <workItem from="1713200044932" duration="226000" />
       <workItem from="1713200354752" duration="999000" />
-      <workItem from="1713270507416" duration="1098000" />
+      <workItem from="1713270507416" duration="2500000" />
     </task>
     <task id="LOCAL-00001" summary="inital pish">
       <option name="closed" value="true" />
@@ -78,7 +76,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713199023543</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="working moving graph. with no serial reading but confirmed serial connection">
+      <option name="closed" value="true" />
+      <created>1713271717537</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1713271717537</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -87,9 +93,10 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="inital pish" />
     <MESSAGE value="with serial function" />
-    <option name="LAST_COMMIT_MESSAGE" value="with serial function" />
+    <MESSAGE value="working moving graph. with no serial reading but confirmed serial connection" />
+    <option name="LAST_COMMIT_MESSAGE" value="working moving graph. with no serial reading but confirmed serial connection" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/live_graphing$generate_graph.coverage" NAME="generate_graph Coverage Results" MODIFIED="1713271460194" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/live_graphing$generate_graph.coverage" NAME="generate_graph Coverage Results" MODIFIED="1713271813236" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
