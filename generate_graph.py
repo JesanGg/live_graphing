@@ -1,8 +1,7 @@
 import serial
-import random as rand
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
-import threading
+from serial_reader import SerialReader
 
 # Define serial port and baud rate
 port = 'COM10'  # Replace with your port name
@@ -12,39 +11,35 @@ baudrate = 9600
 x = []
 y = []
 
+
 def animate(i):
-  try:
-    # Read data from serial port (replace with error handling)
+    try:
+        # Read data from serial port (replace with error handling)
+        print("animate")
 
-    data = ser.readline()  # Read the data
+        voltage, current = SerialReader.read_data()  # Returns string list of length 2
 
-    data = data.decode("utf-8")  # Decode the data
+        # Update data lists
+        x.append(i)  # Replace with timestamp if needed
+        y.append(float(voltage))
 
-    data = data.strip()  # Remove blank spaces in front and behind of the data
+        # Update the plot data
+        line.set_xdata(x)
+        line.set_ydata(y)
 
-    sensorValue = float(data)
-    print(sensorValue)
+        # Optional: Set axis limits for efficiency
+        plt.xlim([0, len(x) - 1])  # Adjust as needed
+        plt.ylim([min(y)-.5, max(y) + .5])  # Adjust as needed
 
-    # Update data lists
-    x.append(i)  # Replace with timestamp if needed
-    y.append(sensorValue)
+        return line,
 
-    # Update the plot data
-    line.set_xdata(x)
-    line.set_ydata(y)
+    except serial.SerialException as e:
+        print(f"Error reading serial port: {e}")
+        return line,  # Keep the plot running even on errors
 
-    # Optional: Set axis limits for efficiency
-    plt.xlim([0, len(x) - 1])  # Adjust as needed
-    plt.ylim([min(y)-.5, max(y) + .5])  # Adjust as needed
-
-    return line,
-
-  except serial.SerialException as e:
-    print(f"Error reading serial port: {e}")
-    return line,  # Keeps the plot running even on errors
 
 # Open serial connection (moved inside the animation loop)
-ser = serial.Serial(port, baudrate)
+SerialReader = SerialReader(port, baudrate)  # Create a serial reader object
 
 fig, ax = plt.subplots()
 
@@ -56,13 +51,15 @@ ax.set_xlabel('Time (or Sample)')  # Replace with appropriate label
 ax.set_ylabel('Sensor Reading')
 ax.set_title('Live Sensor Data Plot')
 
+print("preanimate")
 
 # Animate the plot
 anim = animation.FuncAnimation(fig, animate, interval=100, cache_frame_data=False, blit=True)
 
+print("show")
 
 plt.legend()
 plt.show()
 
 # Close serial connection (optional)
-ser.close()
+SerialReader.close()
