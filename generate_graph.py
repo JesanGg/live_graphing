@@ -23,6 +23,7 @@ def animate(i):
     data = data.strip()  # Remove blank spaces in front and behind of the data
 
     sensorValue = float(data)
+    print(sensorValue)
 
     # Update data lists
     x.append(i)  # Replace with timestamp if needed
@@ -56,10 +57,8 @@ ax.set_ylabel('Sensor Reading')
 ax.set_title('Live Sensor Data Plot')
 
 
-
 # Animate the plot
-anim = animation.FuncAnimation(fig, animate, interval=20, cache_frame_data=False, blit=True)
-
+anim = animation.FuncAnimation(fig, animate, interval=100, cache_frame_data=False, blit=True)
 
 
 plt.legend()

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06a0c377-677e-4788-a227-c02c317a57f4" name="Changes" comment="serial connection with serial data reading and plotted live. With significant delay at higher interval values.">
+    <list default="true" id="06a0c377-677e-4788-a227-c02c317a57f4" name="Changes" comment="serial connection with voltage values and different interval">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/generate_graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/generate_graph.py" afterDir="false" />
     </list>
@@ -58,7 +58,7 @@
       <workItem from="1713199914213" duration="120000" />
       <workItem from="1713200044932" duration="226000" />
       <workItem from="1713200354752" duration="999000" />
-      <workItem from="1713270507416" duration="4863000" />
+      <workItem from="1713270507416" duration="7054000" />
     </task>
     <task id="LOCAL-00001" summary="inital pish">
       <option name="closed" value="true" />
@@ -92,18 +92,46 @@
       <option name="project" value="LOCAL" />
       <updated>1713273076854</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="serial connection with serial data reading and plotted live. With significant delay at higher interval values.">
+      <option name="closed" value="true" />
+      <created>1713275934225</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1713275934225</updated>
+    </task>
+    <task id="LOCAL-00006" summary="serial connection with voltage values and different interval">
+      <option name="closed" value="true" />
+      <created>1713275968164</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1713275968164</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="GitHub.CommitStatus" />
+      </list>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="inital pish" />
     <MESSAGE value="with serial function" />
     <MESSAGE value="working moving graph. with no serial reading but confirmed serial connection" />
     <MESSAGE value="serial connection with serial data reading and plotted live. With significant delay at higher interval values." />
-    <option name="LAST_COMMIT_MESSAGE" value="serial connection with serial data reading and plotted live. With significant delay at higher interval values." />
+    <MESSAGE value="serial connection with voltage values and different interval" />
+    <option name="LAST_COMMIT_MESSAGE" value="serial connection with voltage values and different interval" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/live_graphing$generate_graph.coverage" NAME="generate_graph Coverage Results" MODIFIED="1713271813236" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
