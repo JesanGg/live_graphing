@@ -14,9 +14,6 @@ y_2 = []
 
 
 def animate(i):
-    if window_closed:
-        print("Closing window")
-        return line, line2,
 
     try:
         # Read data from serial port (replace with error handling)
@@ -46,11 +43,6 @@ def animate(i):
         return line, line2,  # Keep the plot running even on errors
 
 
-def on_close(event):
-    global window_closed
-    window_closed = True
-    SerialReader.close()
-
 
 # Open serial connection (moved inside the animation loop)
 SerialReader = SerialReader(port, baudrate)  # Create a serial reader object
@@ -70,7 +62,6 @@ ax.set_title('Live Sensor Data Plot')
 
 print("preanimate")
 
-fig.canvas.mpl_connect('close_event', on_close)
 
 # Animate the plot
 anim = animation.FuncAnimation(fig, animate, interval=5, cache_frame_data=False, blit=True)
