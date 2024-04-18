@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06a0c377-677e-4788-a227-c02c317a57f4" name="Changes" comment="Reading 2 values from serial. Outputing 1 to graph">
+    <list default="true" id="06a0c377-677e-4788-a227-c02c317a57f4" name="Changes" comment="Voltage display on y-axis.">
+      <change afterPath="$PROJECT_DIR$/serial_reader.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/generate_graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/generate_graph.py" afterDir="false" />
     </list>
@@ -63,8 +64,7 @@
       <workItem from="1713199914213" duration="120000" />
       <workItem from="1713200044932" duration="226000" />
       <workItem from="1713200354752" duration="999000" />
-      <workItem from="1713270507416" duration="13366000" />
-      <workItem from="1713446833048" duration="2231000" />
+      <workItem from="1713270507416" duration="11193000" />
     </task>
     <task id="LOCAL-00001" summary="inital pish">
       <option name="closed" value="true" />
@@ -122,15 +122,7 @@
       <option name="project" value="LOCAL" />
       <updated>1713278489938</updated>
     </task>
-    <task id="LOCAL-00008" summary="Reading 2 values from serial. Outputing 1 to graph">
-      <option name="closed" value="true" />
-      <created>1713282377769</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1713282377769</updated>
-    </task>
-    <option name="localTasksCounter" value="9" />
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -146,31 +138,6 @@
         <option value="GitHub.CommitStatus" />
       </list>
     </option>
-    <option name="RECENT_FILTERS">
-      <map>
-        <entry key="Branch">
-          <value>
-            <list>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="master" />
-                </option>
-              </RecentGroup>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="HEAD" />
-                </option>
-              </RecentGroup>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="origin/master" />
-                </option>
-              </RecentGroup>
-            </list>
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -183,7 +150,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="serial-in-seperate-file" />
                       </list>
                     </value>
                   </entry>
@@ -202,8 +169,7 @@
     <MESSAGE value="serial connection with serial data reading and plotted live. With significant delay at higher interval values." />
     <MESSAGE value="serial connection with voltage values and different interval" />
     <MESSAGE value="Voltage display on y-axis." />
-    <MESSAGE value="Reading 2 values from serial. Outputing 1 to graph" />
-    <option name="LAST_COMMIT_MESSAGE" value="Reading 2 values from serial. Outputing 1 to graph" />
+    <option name="LAST_COMMIT_MESSAGE" value="Voltage display on y-axis." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/live_graphing$generate_graph.coverage" NAME="generate_graph Coverage Results" MODIFIED="1713271813236" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

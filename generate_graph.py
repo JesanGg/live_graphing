@@ -10,58 +10,41 @@ baudrate = 9600
 # Initialize data storage (replace with your data type if needed)
 x = []
 y = []
-y_2 = []
 
 
 def animate(i):
-    if window_closed:
-        print("Closing window")
-        return line, line2,
-
     try:
         # Read data from serial port (replace with error handling)
-        print(i)
+        print("animate")
 
         voltage, current = SerialReader.read_data()  # Returns string list of length 2
 
         # Update data lists
         x.append(i)  # Replace with timestamp if needed
         y.append(float(voltage))
-        y_2.append(float(current))
 
         # Update the plot data
         line.set_xdata(x)
         line.set_ydata(y)
-        line2.set_xdata(x)
-        line2.set_ydata(y_2)
 
         # Optional: Set axis limits for efficiency
-        plt.xlim([0, max(x) - 1])  # Adjust as needed
-        plt.ylim([min(y_2) - .5, max(y) + .5])  # Adjust as needed
+        plt.xlim([0, len(x) - 1])  # Adjust as needed
+        plt.ylim([min(y)-.5, max(y) + .5])  # Adjust as needed
 
-        return line, line2,
+        return line,
 
     except serial.SerialException as e:
         print(f"Error reading serial port: {e}")
-        return line, line2,  # Keep the plot running even on errors
-
-
-def on_close(event):
-    global window_closed
-    window_closed = True
-    SerialReader.close()
+        return line,  # Keep the plot running even on errors
 
 
 # Open serial connection (moved inside the animation loop)
 SerialReader = SerialReader(port, baudrate)  # Create a serial reader object
 
-window_closed = False
-
 fig, ax = plt.subplots()
 
 # Create the line object
 line, = ax.plot([], [], label='Sensor Data')
-line2, = ax.plot([], [], label='Sensor Data')
 
 # Add labels and title
 ax.set_xlabel('Time (or Sample)')  # Replace with appropriate label
@@ -70,10 +53,8 @@ ax.set_title('Live Sensor Data Plot')
 
 print("preanimate")
 
-fig.canvas.mpl_connect('close_event', on_close)
-
 # Animate the plot
-anim = animation.FuncAnimation(fig, animate, interval=5, cache_frame_data=False, blit=True)
+anim = animation.FuncAnimation(fig, animate, interval=100, cache_frame_data=False, blit=True)
 
 print("show")
 
