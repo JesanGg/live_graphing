@@ -14,7 +14,6 @@ y_2 = []
 
 
 def animate(i):
-
     try:
         # Read data from serial port (replace with error handling)
         print(i)
@@ -43,7 +42,6 @@ def animate(i):
         return line, line2,  # Keep the plot running even on errors
 
 
-
 # Open serial connection (moved inside the animation loop)
 SerialReader = SerialReader(port, baudrate)  # Create a serial reader object
 
@@ -61,7 +59,6 @@ ax.set_ylabel('Sensor Reading')
 ax.set_title('Live Sensor Data Plot')
 
 print("preanimate")
-
 
 # Animate the plot
 anim = animation.FuncAnimation(fig, animate, interval=5, cache_frame_data=False, blit=True)
