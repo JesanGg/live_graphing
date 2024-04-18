@@ -1,0 +1,3 @@
+This is a group project to collect data from solar panels, and output them in a meaningful way to the user.
+
+We have voltage and current readings, that we manipulate, and display as graphs, charts, plots...
