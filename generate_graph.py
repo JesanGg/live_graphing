@@ -33,7 +33,7 @@ def animate(i):
 
         # Optional: Set axis limits for efficiency
         plt.xlim([0, max(x) - 1])  # Adjust as needed
-        plt.ylim([min(y_2) - .5, max(y) + .5])  # Adjust as needed
+        plt.ylim([min(y_2) - .5, max(y) + .5])  # Adjusts as needed
 
         return line, line2,
 
