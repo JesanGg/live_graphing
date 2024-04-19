@@ -1,3 +1,7 @@
+// Code as been edited so the only serial communication is meant for python interpreter
+
+
+
 #include <Wire.h>
 #include "rgb_lcd.h"
 
@@ -31,9 +35,9 @@ void setup() {
     lcd.print("P=");
     lcd.setCursor(8,1);
     lcd.print("E=");
-  Serial.println(zero);
+  // Serial.println(zero);
   calibrate();
-  Serial.println(zero);
+  // Serial.println(zero);
   delay(2000);
 }
 
@@ -43,25 +47,30 @@ void loop() {
   for ( int i =0;i<300;i++){
     current += getCurrent();
     voltage += getVoltages();
+
     delay(5);
+
+    Serial.print(current);
+    Serial.print(",");
+    Serial.println(voltage);
   }
   current_avg = current / 300.00;
   voltage_avg = voltage / 300.00;
   if(current_avg<0.1 && current_avg>-0.1){current_avg=0.000;}
-  Serial.print("    Volatges = ");
-  Serial.print(voltage_avg);
+  // Serial.print("    Volatges = ");
+  // Serial.print(voltage_avg);
   lcd.setCursor(2, 0);       
   lcd.print(voltage_avg); 
-  Serial.print("                Current = ");
+  // Serial.print("                Current = ");
   lcd.setCursor(10, 0);       
   lcd.print(current_avg); 
-  Serial.print(current_avg);
-  Serial.print("                Power = ");
-  Serial.print(getPower());
+  // Serial.print(current_avg);
+  // Serial.print("                Power = ");
+  // Serial.print(getPower());
   lcd.setCursor(2, 1);       
   lcd.print(getPower()); 
-  Serial.print("                energy = ");
-  Serial.println(energy_Joules);
+  // Serial.print("                energy = ");
+  // Serial.println(energy_Joules);
   lcd.setCursor(10, 1);       
   lcd.print(energy_kwh);
   update_energy();
