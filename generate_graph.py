@@ -1,3 +1,5 @@
+import sys
+
 import serial
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
@@ -14,42 +16,48 @@ y_2 = []
 
 
 def animate(i):
-    try:
-        # Read data from serial port (replace with error handling)
 
-        voltage, current = SerialReader.read_data()  # Assign serial data to 2 variables
+    # Check if figure is closed
+    if not (plt.fignum_exists(1)):
+        Exit()
 
-        # Update data lists
-        x.append(i)
-        y.append(float(voltage))
-        y_2.append(float(current))
+    # Read data from serial port
+    try:  # Assign serial data to 2 variables
+        voltage, current = SerialReader.read_data()
+    except serial.SerialException:  # If serial has been closed by previous "if not"
+        return 0
 
-        # Update the plot data
-        line.set_xdata(x)
-        line.set_ydata(y)
-        line2.set_xdata(x)
-        line2.set_ydata(y_2)
+    # Update data lists
+    x.append(i)
+    y.append(float(voltage))
+    y_2.append(float(current))
 
-        # Axis limit - also dynamic after 300 samples / ~3s
-        plt.ylim([min(y_2) - .5, max(y) + .5])
+    # Update the plot data
+    line.set_xdata(x)
+    line.set_ydata(y)
+    line2.set_xdata(x)
+    line2.set_ydata(y_2)
 
-        if max(x) < 300:
-            plt.xlim([0, max(x)])
-            return line, line2,
+    # Axis limit - also dynamic after 300 samples / ~3s
+    plt.ylim([min(y_2) - .5, max(y) + .5])
 
-        plt.xlim([max(x) - 300, max(x)])
-
+    # Graph is expanding for first 300 samples
+    if max(x) < 300:
+        plt.xlim([0, max(x)+1])
         return line, line2,
 
-    except serial.SerialException as e:
-        print(f"Error reading serial port: {e}")
-        return line, line2,  # Keep the plot running even on errors
+    # Graph size is constant after 300 samples
+    plt.xlim([max(x) - 300, max(x)])
+    return line, line2,
+
+
+def Exit():  # Exit animation without infinite loop
+    plt.close()
+    SerialReader.close()
 
 
 # Open serial connection
 SerialReader = SerialReader(port, baudrate)  # Create a serial reader object
-
-window_closed = False
 
 fig, ax = plt.subplots()
 
@@ -62,15 +70,14 @@ ax.set_xlabel('Time (or Sample)')
 ax.set_ylabel('Sensor Reading')  # ***************************************VOLTAGE CURRENT?
 ax.set_title('Live Sensor Data Plot')
 
-print("preanimate")
 
 # Animate the plot - Need to stop loop after figure is closed
 anim = animation.FuncAnimation(fig, animate, interval=1, cache_frame_data=False, blit=False)
 
-print("show")
-
 plt.legend()
+
 plt.show()
 
+
 # Close serial connection
-# SerialReader.close()
+SerialReader.close()
