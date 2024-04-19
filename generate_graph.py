@@ -50,7 +50,7 @@ def animate(i):
     ax1.set_ylim([min(y) - .5, max(y) + .5])
 
     ax2.set_ylim([min(y_2) - .5, max(y_2) + .5])
-    ax2.set_xlim([0 , max(x_2)])
+    ax2.set_xlim([0, max(x_2)])
 
     # Graph is expanding for first 300 samples
     if max(x) < 300:
@@ -60,8 +60,8 @@ def animate(i):
     # Graph size is constant after 300 samples
     ax1.set_xlim([max(x) - 300, max(x)])
 
-
     return line, line2
+
 
 def Exit():  # Exit animation without infinite loop
     plt.close()
