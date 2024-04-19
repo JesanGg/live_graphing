@@ -2,8 +2,8 @@ import serial
 
 
 class SerialReader:
-    def __init__(self, port, baudrate):
-        self.ser = serial.Serial(port, baudrate)
+    def __init__(self, port, baudrate, timeout_in_seconds):
+        self.ser = serial.Serial(port, baudrate,timeout=timeout_in_seconds)
 
     def read_data(self):
         # Read data from serial port (replace with error handling if needed)

@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06a0c377-677e-4788-a227-c02c317a57f4" name="Changes" comment="version 1 - all errors caught - clean build">
+    <list default="true" id="06a0c377-677e-4788-a227-c02c317a57f4" name="Changes" comment="subplots working, updating. Fixed error after ~1200 samples causing timeout error">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generate_graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/generate_graph.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="potenital-oop-consideration" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -137,7 +138,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713537263619</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="subplots working, updating. Fixed error after ~1200 samples causing timeout error">
+      <option name="closed" value="true" />
+      <created>1713549137389</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1713549137389</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -206,7 +215,8 @@
     <MESSAGE value="Voltage display on y-axis." />
     <MESSAGE value="not working detecting closing window" />
     <MESSAGE value="version 1 - all errors caught - clean build" />
-    <option name="LAST_COMMIT_MESSAGE" value="version 1 - all errors caught - clean build" />
+    <MESSAGE value="subplots working, updating. Fixed error after ~1200 samples causing timeout error" />
+    <option name="LAST_COMMIT_MESSAGE" value="subplots working, updating. Fixed error after ~1200 samples causing timeout error" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/live_graphing$generate_graph.coverage" NAME="generate_graph Coverage Results" MODIFIED="1713535127568" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
