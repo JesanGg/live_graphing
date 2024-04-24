@@ -4,8 +4,8 @@ import matplotlib.animation as animation
 from serial_reader import SerialReader
 
 # Define serial port and baud rate
-port = 'COM10'  # Replace with your port name
-baudrate = 9600  # Baudrate from Arduino IDE flash
+port = 'COM12'  # Replace with your port name
+baudrate = 115200  # Baudrate from Arduino IDE flash
 
 # Initialize data storage (replace with your data type if needed)
 x = []  # Change for desired data - x_voltage, y_voltage...
@@ -23,6 +23,8 @@ def animate(i):
     try:  # Assign serial data to 2 variables
         voltage, current = SerialReader.read_data()
         print(voltage, current)
+    except ValueError:  # If nothing is sent
+        voltage, current = 0, 0
     except serial.SerialException:  # If serial has been closed by previous "if not"
         return 0
 
@@ -87,7 +89,7 @@ ax2.set_ylabel('Current')  # ***************************************VOLTAGE CURR
 ax2.set_title('Sensor Current Data Plot')
 
 # Animate the plot - Need to stop loop after figure is closed
-anim = animation.FuncAnimation(fig, animate, interval=1, cache_frame_data=False, blit=False)
+anim = animation.FuncAnimation(fig, animate, interval=10, cache_frame_data=False, blit=False)
 
 plt.legend()
 
