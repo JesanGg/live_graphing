@@ -2,10 +2,12 @@ import serial
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 from serial_reader import SerialReader
+import csv  # Example using csv library
+
 
 # Define serial port and baud rate
-port = 'COM10'  # Replace with your port name
-baudrate = 9600  # Baudrate from Arduino IDE flash
+port = 'COM12'  # Replace with your port name
+baudrate = 115200  # Baudrate from Arduino IDE flash
 
 # Initialize data storage (replace with your data type if needed)
 x = []  # Change for desired data - x_voltage, y_voltage...
@@ -86,8 +88,13 @@ ax2.set_xlabel('Time (or Sample)')
 ax2.set_ylabel('Current')  # ***************************************VOLTAGE CURRENT?
 ax2.set_title('Sensor Current Data Plot')
 
-# Animate the plot - Need to stop loop after figure is closed
-anim = animation.FuncAnimation(fig, animate, interval=1, cache_frame_data=False, blit=False)
+# Open the CSV file for writing
+with open('live_data.csv', 'w', newline='') as csvfile:
+    csv_writer = csv.writer(csvfile)
+    csv_writer.writerow(['Time', 'Voltage', 'Current'])  # Header row
+
+    # Animate the plot - Need to stop loop after figure is closed
+    anim = animation.FuncAnimation(fig, animate, interval=1, cache_frame_data=False, blit=False)
 
 plt.legend()
 
