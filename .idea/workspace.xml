@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06a0c377-677e-4788-a227-c02c317a57f4" name="Changes" comment="writing to csv not working. Plots not working.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generate_graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/generate_graph.py" afterDir="false" />
-    </list>
+    <list default="true" id="06a0c377-677e-4788-a227-c02c317a57f4" name="Changes" comment="Saving to files working.&#10;Saving once a minute.&#10;Timed animate function. ~.55ms" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,7 +20,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="saving-to-csv" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -65,6 +62,9 @@
       <workItem from="1713200354752" duration="999000" />
       <workItem from="1713270507416" duration="11193000" />
       <workItem from="1713536440044" duration="1215000" />
+      <workItem from="1713883980251" duration="4373000" />
+      <workItem from="1713978308779" duration="721000" />
+      <workItem from="1714048658511" duration="6235000" />
     </task>
     <task id="LOCAL-00001" summary="inital pish">
       <option name="closed" value="true" />
@@ -162,7 +162,23 @@
       <option name="project" value="LOCAL" />
       <updated>1713549926263</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="version 2 - multiple subplots">
+      <option name="closed" value="true" />
+      <created>1713555678631</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1713555678631</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Saving to files working.&#10;Saving once a minute.&#10;Timed animate function. ~.55ms">
+      <option name="closed" value="true" />
+      <created>1714052392050</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1714052392050</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,7 +226,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="saving-to-textfile" />
                       </list>
                     </value>
                   </entry>
@@ -234,8 +250,8 @@
     <MESSAGE value="version 2 - multiple (2) subplots" />
     <MESSAGE value="subplots working, updating. Fixed error after ~1200 samples causing timeout error" />
     <MESSAGE value="version 2 - multiple subplots" />
-    <MESSAGE value="writing to csv not working. Plots not working." />
-    <option name="LAST_COMMIT_MESSAGE" value="writing to csv not working. Plots not working." />
+    <MESSAGE value="Saving to files working.&#10;Saving once a minute.&#10;Timed animate function. ~.55ms" />
+    <option name="LAST_COMMIT_MESSAGE" value="Saving to files working.&#10;Saving once a minute.&#10;Timed animate function. ~.55ms" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/live_graphing$generate_graph.coverage" NAME="generate_graph Coverage Results" MODIFIED="1713535127568" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
