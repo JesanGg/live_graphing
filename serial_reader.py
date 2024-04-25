@@ -6,7 +6,7 @@ class SerialReader:
         self.ser = serial.Serial(port, baudrate,timeout=timeout_in_seconds)
 
     def read_data(self):
-        # Read data from serial port (replace with error handling if needed)
+        # Read data from serial port
         data = (self.ser.readline())
 
         data = data.decode('utf-8')
