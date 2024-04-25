@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 from serial_reader import SerialReader
 import datetime
-import time  # Timing functions to see time cost
 
 # Define serial port and baud rate
 port = 'COM10'  # Replace with your port name
@@ -21,16 +20,13 @@ def animate(i):
     if not (plt.fignum_exists(1)):
         Exit()
 
-    # start_time = time.perf_counter()
-
     # Read data from serial port
     try:  # Assign serial data to 2 variables
         voltage, current = SerialReader.read_data()
-        # print(voltage, current)
     except serial.SerialException:  # If serial has been closed by previous "if not"
         return 0
     except ValueError:  # If nothing is sent
-        voltage = 0, 0
+        voltage, current = 0, 0
 
     if i % 100 == 0:  # Write every 100 samples
         f.write(f"{i},{voltage},{current}\n")
@@ -43,14 +39,14 @@ def animate(i):
         voltage = 0
         voltage_y.append(float(voltage))
 
-    """
-    power calcs
-    # x_2.append(float(current))
-    # y_2.append(float(current)*0.08)
-    """
+    try:
+        power_x.append(i)
+        power_y.append(float(current))  # Actually voltage currently
+    except ValueError:  # If nothing is sent
+        current = 0
+        power_y.append(float(current))  # Actually voltage currently
 
-    power_x.append(i)
-    power_y.append(float(current))  # Actually voltage currently
+
 
     # Update the plot data
     line.set_xdata(voltage_x)
@@ -76,12 +72,6 @@ def animate(i):
     # Graph size is constant after 300 samples
     ax1.set_ylim([min(voltage_y[-300:]) - .5, max(voltage_y[-300:]) + .5])
     ax1.set_xlim([max(voltage_x) - 300, max(voltage_x)])
-
-    # # Calculate frame time in milliseconds
-    # frame_time = (time.perf_counter() - start_time) * 1000
-    #
-    # # Print or store frame time for analysis (optional)
-    # print(f"Frame {i} time: {frame_time:.2f} ms")
 
     return line, line2
 
@@ -120,8 +110,8 @@ f.write("i,voltage,current\n")
 # Animate the plot - Need to stop loop after figure is closed
 anim = animation.FuncAnimation(fig, animate, interval=1, cache_frame_data=False, blit=False)
 
-# plt.legend()
-#
+plt.legend()
+
 plt.show()
 
 f.close()

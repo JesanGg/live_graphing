@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06a0c377-677e-4788-a227-c02c317a57f4" name="Changes" comment="Saving to files working.&#10;Saving once a minute.&#10;Timed animate function. ~.55ms" />
+    <list default="true" id="06a0c377-677e-4788-a227-c02c317a57f4" name="Changes" comment="Version 3 - Save to file, errors caught.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generate_graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/generate_graph.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -178,7 +181,23 @@
       <option name="project" value="LOCAL" />
       <updated>1714052392050</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Merge branch 'refs/heads/saving-to-textfile'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;generate_graph.py">
+      <option name="closed" value="true" />
+      <created>1714059132701</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1714059132701</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Version 3 - Save to file, errors caught.">
+      <option name="closed" value="true" />
+      <created>1714060485469</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1714060485469</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -251,7 +270,10 @@
     <MESSAGE value="subplots working, updating. Fixed error after ~1200 samples causing timeout error" />
     <MESSAGE value="version 2 - multiple subplots" />
     <MESSAGE value="Saving to files working.&#10;Saving once a minute.&#10;Timed animate function. ~.55ms" />
-    <option name="LAST_COMMIT_MESSAGE" value="Saving to files working.&#10;Saving once a minute.&#10;Timed animate function. ~.55ms" />
+    <MESSAGE value="Saving to files working.&#10;Saving once a minute.&#10;Timed animate function. ~.55ms&#10;Believe to have caught all errors." />
+    <MESSAGE value="Merge branch 'refs/heads/saving-to-textfile'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;generate_graph.py" />
+    <MESSAGE value="Version 3 - Save to file, errors caught." />
+    <option name="LAST_COMMIT_MESSAGE" value="Version 3 - Save to file, errors caught." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/live_graphing$generate_graph.coverage" NAME="generate_graph Coverage Results" MODIFIED="1713535127568" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
