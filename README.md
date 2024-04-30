@@ -4,4 +4,4 @@ We have voltage and current readings, that we manipulate, and display as graphs,
 
 Main code is in generate_graph
 
-serial_reader is a seperate file containing serial reading code - due to inital modularity considerations, which were later scrapped.
+serial_reader is a seperate file containing serial reading code - due to inital modularity considerations
